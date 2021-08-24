@@ -16,7 +16,8 @@
  
  
  
- cmd_3:  Brute-Force      ||| hashcat -a 3 -m 0 example0.hash -i ?a?a?a?a?a?a
+ cmd_3:  Brute-Force      ||| hashcat -a 3 -m 0 example0.hash ?a?a?a?a?a?a
+                          ||| hashcat -a 3 -m 0 example0.hash -i ?a?a?a?a?a?a  //faster
  ________________________________________________________________________________________
  ?d :  Digit
  ?l : Lower letter
