@@ -1,21 +1,22 @@
 
-commands:
---------------
 
 
  cmd_1:  Wordlist  |||  hashcat -a 0 -m 400 example400.hash example.dict
  _________________________________________________________________________________________________
- -a : attacking mode
- -m : hash type
+ Simpliest way to crack hash. In straight mode it will find the exact match of the hashes in the wordlists...
  
  
- cmd_2:  Wordlist + Rules | MD5   | hashcat -a 0 -m 0 example0.hash example.dict -r rules/best64.rule
+ 
+ 
+ cmd_2:  Wordlist + Rules ||| hashcat -a 0 -m 0 example0.hash example.dict -r rules/best64.rule
  __________________________________________________________________________________________________________
  there is a beautiful function of rules(-r flag). If the hash is SamaNtha123 but we have samantha in our wordlist, hash will not be cracked by cmd_1. we have to use rules.
  It will transform cases and add some numbers after or before word. Thus SamaNtha123 will be cracked by samantha word..
  rules directory in kali linux: /usr/share/hashcat/rules
  
- cmd_3:  Brute-Force      | MD5   | hashcat -a 3 -m 0 example0.hash ?a?a?a?a?a?a
+ 
+ 
+ cmd_3:  Brute-Force      ||| hashcat -a 3 -m 0 example0.hash ?a?a?a?a?a?a
  ________________________________________________________________________________________
  ?d :  Digit
  ?l : Lower letter
@@ -25,11 +26,15 @@ commands:
  number of ? : number of digit of the word 
  Above hashcat will generate words of five digit and there can be any character as we used ?a .
  
+ 
+ 
  cmd_3:  Combinator | MD5   | hashcat -a 1 -m 0 example0.hash wordlist1.dict wordlist2.dict
 ______________________________________________________________________________________________
 
 Suppose our hash value is sunflower . but we have not this word in the wordlists. we have "sun" in wordlist1.dic and we have "flower" in wordlist2.dic . we have to just combine the 
 words of different file and attacking mode 1 (-a 1) or combinator do the same thing. if we run the command we will crack the hash...
+
+
 
 
 - [ Options ] -
@@ -379,6 +384,7 @@ ________________________________________________________________________________
 
 
 
+
 - [ Outfile Formats ] -( Don't now what this is...)
 _______________________________________________________________________________________________________________________________________________
   # | Format
@@ -389,6 +395,7 @@ ________________________________________________________________________________
   4 | crack_pos
   5 | timestamp absolute
   6 | timestamp relative
+
 
 
 - [ Attack Modes ] -
