@@ -1,1 +1,27 @@
 
+Commnad:
+____________________________________
+1. nmap domaim/ip
+   nmap ip1 ip2 > result.txt (scan two sites at a time)
+__________________________________________________
+
+2. nmap -oG - 192.168.0.1-255 -p 22 -vv > results.txt
+_______________________________________________________
+    -oG : Grepable Output
+    192.168.0.1-255 : ip range 
+    -vv : verbose
+    -p : port
+
+3. nmap -A ip
+________________
+  -A: agressive scan ---- Enable OS detection, version detection, script scanning, and traceroute
+  
+4. nmap -sV ip 
+________________________
+ -sV : service version
+ 
+5. nmap -F ip
+__________________
+ -F : Fast scan -- It will scan most common ports in this ip. It will scan top hundred ports.
+ 
+6.
