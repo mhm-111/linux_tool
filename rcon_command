@@ -1,0 +1,5 @@
+ nslookup : nslookup ip , nslookup domain
+        eg: nslookup 192.168. 0.1 >> output.txt 
+ 
+ In browser: who is ip.
+ 
