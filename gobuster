@@ -1,1 +1,4 @@
 
+gobuster dir -u 10.10.201.220 -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -o directory.txt -vv
+
+for finding hidden directory of a website
