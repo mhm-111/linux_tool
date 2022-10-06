@@ -48,10 +48,24 @@ _________________
 
 
 
+Cracking a zip/rar file password:
+------------------------------------------------
+
+>> Make password hash file
+
+  zip2john zipfile > password.txt
+
+  (If it is a RAR file, replace the zip in the front to rar.)
+
+>> crack it
+
+  john --format=zip password.txt
 
 
 
-
+Decrypting MD5 Hash
+--------------------------------
+>> john --format=raw-md5 hashpass.txt
 
 
 
