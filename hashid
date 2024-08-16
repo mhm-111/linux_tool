@@ -1,0 +1,6 @@
+It is used to identify hash.
+
+  $ hashid -m hash
+ex: hashid -m fde422b8c5fe5d197376952548bd27fd
+
+here -m is used to determine hash mode in hashcat
