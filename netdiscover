@@ -1,0 +1,20 @@
+netdiscover -c 100 -r ip_range -i interface-name\
+
+ex: 
+
+>> ifconfig
+wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.106  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::fe5e:7ce:6e21:6bb6  prefixlen 64  scopeid 0x20<link>
+
+--> here our wlan0(wifi adaptor) ip is 192.168.0.106. So every connected device in my wifi has 192.168.0.0-255 range ip. To 
+search all 255 ip we will use x.x.x.0/24. 24 is for 255 netmask.
+-r range: scan a given range instead of auto scan. 192.168.6.0/24,/16,/8
+
+
+
+>> sudo netdiscover -i wlan0 -r 192.168.0.0/24
+
+--> here we use -c : for count: number of times to send each ARP request (for nets with packet loss)
+
+
